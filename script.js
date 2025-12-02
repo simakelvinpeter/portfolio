@@ -362,7 +362,10 @@ function initializeAnimations() {
 
 // ===== COUNTERS =====
 function initializeCounters() {
-    const counters = document.querySelectorAll('.stat-number[data-count]');
+    // Auto-count projects
+    updateProjectsCount();
+    
+    const counters = document.querySelectorAll('[data-count]');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -371,16 +374,38 @@ function initializeCounters() {
                 observer.unobserve(entry.target);
             }
         });
+    }, {
+        threshold: 0.5
     });
     
     counters.forEach(counter => observer.observe(counter));
 }
 
+function updateProjectsCount() {
+    // Count all projects with data-project attribute
+    const projectsGrid = document.getElementById('projects-grid');
+    if (projectsGrid) {
+        const projectCount = projectsGrid.querySelectorAll('[data-project]').length;
+        const projectsCounter = document.getElementById('projects-count');
+        if (projectsCounter) {
+            projectsCounter.setAttribute('data-count', projectCount);
+        }
+    }
+}
+
 function animateCounter(element) {
     const target = parseInt(element.getAttribute('data-count'));
-    const suffix = element.textContent.includes('%') ? '%' : '+';
-    const increment = target / 100;
+    if (isNaN(target) || target === 0) {
+        element.textContent = '0';
+        return;
+    }
+    
+    const suffix = element.textContent.includes('%') ? '%' : '';
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const increment = target / steps;
     let current = 0;
+    const stepTime = duration / steps;
     
     const timer = setInterval(() => {
         current += increment;
@@ -390,7 +415,7 @@ function animateCounter(element) {
         } else {
             element.textContent = Math.floor(current) + suffix;
         }
-    }, 20);
+    }, stepTime);
 }
 
 // ===== SKILL BARS =====
@@ -1512,10 +1537,186 @@ if ('performance' in window) {
     });
 }
 
+// ===== CUSTOMER SATISFACTION RATING SYSTEM =====
+function initializeSatisfactionRating() {
+    const modal = document.getElementById('satisfaction-modal');
+    const satisfactionStat = document.getElementById('satisfaction-stat');
+    const cancelBtn = document.getElementById('cancel-rating');
+    const submitBtn = document.getElementById('submit-rating');
+    const starButtons = document.querySelectorAll('.star-rating');
+    const levelButtons = document.querySelectorAll('.satisfaction-level');
+    const commentField = document.getElementById('satisfaction-comment');
+    
+    let selectedRating = 0;
+    let selectedLevel = 0;
+    
+    // Load saved ratings
+    loadSatisfactionData();
+    
+    // Open modal
+    satisfactionStat?.addEventListener('click', () => {
+        modal.classList.remove('opacity-0', 'invisible');
+        modal.querySelector('.bg-white').classList.remove('scale-95');
+        modal.querySelector('.bg-white').classList.add('scale-100');
+    });
+    
+    // Close modal
+    cancelBtn?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    
+    function closeModal() {
+        modal.classList.add('opacity-0', 'invisible');
+        modal.querySelector('.bg-white').classList.add('scale-95');
+        modal.querySelector('.bg-white').classList.remove('scale-100');
+        resetForm();
+    }
+    
+    // Star rating interaction
+    starButtons.forEach((star, index) => {
+        star.addEventListener('click', () => {
+            selectedRating = index + 1;
+            updateStars(selectedRating);
+            // Calculate level from stars (20% per star)
+            selectedLevel = (selectedRating * 20);
+            updateLevels(selectedLevel);
+            submitBtn.disabled = false;
+        });
+        
+        star.addEventListener('mouseenter', () => {
+            updateStars(index + 1, true);
+        });
+        
+        star.addEventListener('mouseleave', () => {
+            updateStars(selectedRating);
+        });
+    });
+    
+    // Satisfaction level buttons
+    levelButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            selectedLevel = parseInt(btn.dataset.level);
+            updateLevels(selectedLevel);
+            // Update stars based on level
+            selectedRating = Math.ceil(selectedLevel / 20);
+            updateStars(selectedRating);
+            submitBtn.disabled = false;
+        });
+    });
+    
+    function updateStars(rating, hover = false) {
+        starButtons.forEach((star, index) => {
+            if (index < rating) {
+                star.classList.remove('text-gray-300');
+                star.classList.add('text-yellow-400');
+            } else {
+                star.classList.add('text-gray-300');
+                star.classList.remove('text-yellow-400');
+            }
+        });
+    }
+    
+    function updateLevels(level) {
+        levelButtons.forEach(btn => {
+            const btnLevel = parseInt(btn.dataset.level);
+            if (btnLevel === level) {
+                btn.classList.add('ring-2', 'ring-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+            } else {
+                btn.classList.remove('ring-2', 'ring-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+            }
+        });
+    }
+    
+    // Submit rating
+    submitBtn?.addEventListener('click', () => {
+        if (selectedLevel > 0) {
+            saveRating(selectedRating, selectedLevel, commentField.value);
+            showNotification('Thank you for your feedback!', 'success');
+            closeModal();
+        }
+    });
+    
+    function resetForm() {
+        selectedRating = 0;
+        selectedLevel = 0;
+        updateStars(0);
+        updateLevels(0);
+        commentField.value = '';
+        submitBtn.disabled = true;
+    }
+}
+
+function saveRating(stars, level, comment) {
+    // Get existing ratings
+    let ratings = JSON.parse(localStorage.getItem('satisfactionRatings') || '[]');
+    
+    // Add new rating
+    ratings.push({
+        stars: stars,
+        level: level,
+        comment: comment,
+        timestamp: new Date().toISOString()
+    });
+    
+    // Save to localStorage
+    localStorage.setItem('satisfactionRatings', JSON.stringify(ratings));
+    
+    // Update the display
+    updateSatisfactionDisplay();
+}
+
+function loadSatisfactionData() {
+    updateSatisfactionDisplay();
+}
+
+function updateSatisfactionDisplay() {
+    const ratings = JSON.parse(localStorage.getItem('satisfactionRatings') || '[]');
+    
+    if (ratings.length > 0) {
+        // Calculate average satisfaction
+        const total = ratings.reduce((sum, rating) => sum + rating.level, 0);
+        const average = Math.round(total / ratings.length);
+        
+        // Update the stat counter
+        const statElement = document.querySelector('#satisfaction-stat [data-count]');
+        if (statElement) {
+            statElement.setAttribute('data-count', average);
+            statElement.textContent = average;
+        }
+    }
+}
+
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `fixed top-24 right-8 px-6 py-4 rounded-xl shadow-2xl z-50 transform transition-all duration-300 translate-x-full ${
+        type === 'success' ? 'bg-green-500' : 'bg-blue-500'
+    } text-white font-semibold`;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.remove('translate-x-full');
+    }, 100);
+    
+    setTimeout(() => {
+        notification.classList.add('translate-x-full');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// Initialize satisfaction rating when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    initializeSatisfactionRating();
+});
+
 // Export functions for testing or external use
 window.PortfolioAPI = {
     toggleTheme,
     showNotification,
     animateCounter,
-    typeText
+    typeText,
+    saveRating,
+    loadSatisfactionData
 };
