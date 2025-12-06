@@ -1,0 +1,124 @@
+/* Material Design Enhancements */
+:root {
+    --mdc-theme-primary: #1976d2;
+    --mdc-theme-secondary: #9c27b0;
+    --mdc-theme-background: #fafafa;
+    --mdc-theme-surface: #ffffff;
+    --mdc-theme-error: #f44336;
+    --mdc-theme-on-primary: #ffffff;
+    --mdc-theme-on-secondary: #ffffff;
+}
+
+/* Material Design Elevation Shadows */
+.mdc-elevation--z1 {
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.mdc-elevation--z2 {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.mdc-elevation--z4 {
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+}
+
+.mdc-elevation--z8 {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+
+/* Material Design Ripple Effect */
+.mdc-ripple-surface {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Material Design Cards */
+.mdc-card {
+    border-radius: 4px;
+    background-color: var(--mdc-theme-surface);
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mdc-card:hover {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+
+/* Material Design Buttons */
+.mdc-button {
+    font-family: Roboto, sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.0892857143em;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0 16px;
+    height: 36px;
+    border-radius: 4px;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Material Design Typography */
+body {
+    font-family: Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+}
+
+/* Material Design Transitions */
+.mdc-transition {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Material Design Input Fields */
+.mdc-text-field {
+    border-radius: 4px 4px 0 0;
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Floating Action Button */
+.mdc-fab {
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mdc-fab:hover {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+
+/* Material Design App Bar */
+.mdc-top-app-bar {
+    background-color: var(--mdc-theme-primary);
+    color: var(--mdc-theme-on-primary);
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+}
+
+/* Enhance existing components with Material Design */
+.bg-white {
+    background-color: var(--mdc-theme-surface);
+}
+
+.rounded-2xl,
+.rounded-xl {
+    border-radius: 8px;
+}
+
+/* Material Design color palette integration */
+.text-blue-600 {
+    color: var(--mdc-theme-primary) !important;
+}
+
+.bg-blue-600 {
+    background-color: var(--mdc-theme-primary) !important;
+}
+
+.border-blue-500 {
+    border-color: var(--mdc-theme-primary) !important;
+}

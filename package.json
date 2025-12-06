@@ -1,0 +1,20 @@
+{
+  "name": "simakelvin-portfolio",
+  "version": "1.0.0",
+  "description": "Sima Kelvin - Digital Solutions Architect Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s . -p 10000",
+    "dev": "serve -s ."
+  },
+  "keywords": [
+    "portfolio",
+    "web-developer",
+    "frontend"
+  ],
+  "author": "Sima Kelvin Peter",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}

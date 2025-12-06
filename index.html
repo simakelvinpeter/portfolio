@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sima Kelvin - Digital Solutions Architect</title>
+    
+    <!-- Material Design CSS -->
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    
+    <!-- Tailwind CSS (for utility classes) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Material Design Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Professional Icon Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Roboto', 'sans-serif'],
+                        'mono': ['Roboto Mono', 'monospace'],
+                    },
+                    colors: {
+                        'primary': {
+                            50: '#f0f9ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        'dark': {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'gradient': 'gradient 15s ease infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' }
+                        }
+                    }
+                }
+            },
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-inter antialiased transition-colors duration-300">
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex items-center justify-center transition-opacity duration-500">
+        <div class="text-center">
+            <div class="w-16 h-16 border-4 border-gray-200 dark:border-gray-700 border-t-blue-500 rounded-full animate-spin mx-auto mb-4"></div>
+            <p class="text-gray-600 dark:text-gray-400 text-lg">Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Professional Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50 z-40 transition-all duration-500 shadow-sm dark:shadow-gray-900/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-18">
+                <!-- Enhanced Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="relative group cursor-hover">
+                        <span class="text-3xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent transition-all duration-300">
+                            SK
+                        </span>
+                        <div class="absolute -inset-2 bg-gradient-to-r from-blue-600/10 to-purple-600/10 dark:from-blue-400/20 dark:to-purple-400/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                        <span class="text-xs font-mono text-blue-600">01.</span> Home
+                    </a>
+                    <a href="#about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                        <span class="text-xs font-mono text-blue-600">02.</span> About
+                    </a>
+                    <a href="#skills" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                        <span class="text-xs font-mono text-blue-600">03.</span> Skills
+                    </a>
+                    <a href="#projects" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                        <span class="text-xs font-mono text-blue-600">04.</span> Projects
+                    </a>
+                    <a href="#contact" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                        <span class="text-xs font-mono text-blue-600">05.</span> Contact
+                    </a>
+                </div>
+
+                <!-- Professional Theme Toggle & Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <!-- Professional Theme Toggle -->
+                    <button id="theme-toggle" class="relative p-3 rounded-xl bg-white/70 dark:bg-gray-800/70 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300 shadow-lg hover:shadow-xl cursor-hover group">
+                        <!-- Light Mode Icon (Sun) -->
+                        <svg class="w-5 h-5 text-amber-500 transition-all duration-300 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <!-- Dark Mode Icon (Moon) -->
+                        <svg class="w-5 h-5 text-slate-400 transition-all duration-300 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Professional Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-3 rounded-xl bg-white/70 dark:bg-gray-800/70 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300 shadow-lg hover:shadow-xl cursor-hover">
+                        <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#home" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                    <span class="text-xs font-mono text-blue-600">01.</span> Home
+                </a>
+                <a href="#about" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                    <span class="text-xs font-mono text-blue-600">02.</span> About
+                </a>
+                <a href="#skills" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                    <span class="text-xs font-mono text-blue-600">03.</span> Skills
+                </a>
+                <a href="#projects" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                    <span class="text-xs font-mono text-blue-600">04.</span> Projects
+                </a>
+                <a href="#contact" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                    <span class="text-xs font-mono text-blue-600">05.</span> Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16 relative overflow-hidden">
+        <!-- Enhanced Dark Mode Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 transition-all duration-700"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10 parallax-element"></div>
+        
+        <!-- Enhanced Floating Shapes with Dark Mode -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-blue-500/10 dark:bg-blue-400/20 rounded-full blur-xl floating-animation transition-all duration-500"></div>
+        <div class="absolute top-40 right-20 w-32 h-32 bg-purple-500/10 dark:bg-purple-400/20 rounded-full blur-xl floating-animation transition-all duration-500"></div>
+        <div class="absolute bottom-40 left-20 w-24 h-24 bg-pink-500/10 dark:bg-pink-400/20 rounded-full blur-xl floating-animation transition-all duration-500"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            
+            
+            <!-- Hero Content (below image on small screens) -->
+            <div class="space-y-6 animate-fade-in">
+                <!-- Minimal Professional Badge -->
+                <div class="inline-flex items-center space-x-2 px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-md border border-emerald-200 dark:border-emerald-800">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span class="text-sm text-emerald-700 dark:text-emerald-400">Available for work</span>
+                </div>
+                
+                <div class="space-y-3">
+                    <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white tracking-tight">
+                        Sima Kelvin
+                    </h1>
+                    <p class="text-xl lg:text-2xl text-gray-600 dark:text-gray-400 font-normal">
+                        Software Developer & Digital Solutions Architect
+                    </p>
+                </div>
+
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
+                    Creating innovative web experiences with clean code and thoughtful design. 
+                    Specialized in building scalable applications that solve real-world problems.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#projects" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200">
+                        View Projects
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 font-medium rounded-lg transition-colors duration-200">
+                        Contact Me
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-8 pt-8">
+                    <div class="text-center">
+                        <div id="projects-count" class="text-3xl font-bold text-blue-600 dark:text-blue-400" data-count="7">7</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
+                    </div>
+                    <div class="text-center cursor-pointer group" id="satisfaction-stat" title="Click to rate your satisfaction">
+                        <div class="text-3xl font-bold text-blue-600 dark:text-blue-400" data-count="0">0%</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Client Satisfaction</div>
+                        <button class="mt-2 px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200">Rate Us</button>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-600 dark:text-blue-400" data-count="2">2</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Hero Image -->
+            <div class="flex justify-center lg:justify-end animate-fade-in">
+                <div class="relative">
+                    <!-- Glassmorphism Frame -->
+                    <div class="absolute inset-0 bg-white/10 dark:bg-gray-800/10 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20"></div>
+                    
+                    <!-- Main Image Container -->
+                    <div class="relative w-80 h-96 lg:w-96 lg:h-[480px] rounded-3xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500 hover:scale-105 cursor-hover">
+                        <img src="assets/Portfolio.jpeg" alt="Sima Kelvin Peter - Full Stack Developer" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-600/30 via-transparent to-purple-600/20"></div>
+                        
+                        <!-- Professional Overlay -->
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md rounded-xl p-4">
+                            <h3 class="font-bold text-gray-900 dark:text-white">Sima Kelvin Peter</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Digital Solutions Architect</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Professional Floating Tech Icons -->
+                    <div class="absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-xl floating-animation rotate-on-scroll">
+                        <svg class="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.36-.034-.47 0-.92.014-1.36.034.44-.572.895-1.096 1.36-1.564zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.866.728-.064 1.466-.099 2.21-.099zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.788-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.36.034.47 0 .92-.014 1.36-.034-.44.572-.895 1.095-1.36 1.56-.465-.467-.92-.992-1.36-1.56z"/>
+                        </svg>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-xl floating-animation rotate-on-scroll">
+                        <svg class="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.570,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/>
+                        </svg>
+                    </div>
+                    <div class="absolute top-1/2 -right-8 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center text-white text-xl shadow-lg floating-animation">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09-.33.22zM21.1 6.11l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14.104.05.123-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07.32.04.28.02.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08-.33.23z"/>
+                        </svg>
+                    </div>
+                    <div class="absolute top-1/3 -left-8 w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center text-white text-xl shadow-lg floating-animation">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Decorative Elements -->
+                    <div class="absolute -top-10 right-10 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-10 left-10 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="flex flex-col items-center space-y-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                <span class="text-sm font-medium">Explore More</span>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-fade-in">
+                <span class="text-blue-600 dark:text-blue-400 font-mono text-lg">02. About Me</span>
+                <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-6">
+                    <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        Passionate Developer
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Creating digital experiences that matter
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- About Content -->
+                <div class="space-y-8 animate-slide-up">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Building the future, one line of code at a time</h3>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            I'm a passionate Software Developer with a deep commitment to crafting innovative digital solutions. 
+                            My journey in technology is driven by the belief that great software can transform businesses and 
+                            enhance lives in meaningful ways.
+                        </p>
+                    </div>
+
+                    <!-- Core Values Grid -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="group relative overflow-hidden bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 p-6 rounded-lg mdc-elevation--z2 hover:mdc-elevation--z8 transition-all duration-300 cursor-pointer">
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-white opacity-10 rounded-full -mr-10 -mt-10"></div>
+                            <div class="relative">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4 backdrop-blur-sm">
+                                    <i class="material-icons text-white text-2xl">flag</i>
+                                </div>
+                                <h4 class="text-white font-bold text-lg mb-2">Mission</h4>
+                                <p class="text-blue-50 text-sm leading-relaxed">
+                                    Transform ideas into powerful digital products that solve real problems
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="group relative overflow-hidden bg-gradient-to-br from-purple-500 to-purple-600 dark:from-purple-600 dark:to-purple-700 p-6 rounded-lg mdc-elevation--z2 hover:mdc-elevation--z8 transition-all duration-300 cursor-pointer">
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-white opacity-10 rounded-full -mr-10 -mt-10"></div>
+                            <div class="relative">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4 backdrop-blur-sm">
+                                    <i class="material-icons text-white text-2xl">psychology</i>
+                                </div>
+                                <h4 class="text-white font-bold text-lg mb-2">Approach</h4>
+                                <p class="text-purple-50 text-sm leading-relaxed">
+                                    User-first design meets clean code - building experiences that matter
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="group relative overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700 p-6 rounded-lg mdc-elevation--z2 hover:mdc-elevation--z8 transition-all duration-300 cursor-pointer">
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-white opacity-10 rounded-full -mr-10 -mt-10"></div>
+                            <div class="relative">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4 backdrop-blur-sm">
+                                    <i class="material-icons text-white text-2xl">rocket_launch</i>
+                                </div>
+                                <h4 class="text-white font-bold text-lg mb-2">Vision</h4>
+                                <p class="text-orange-50 text-sm leading-relaxed">
+                                    Build scalable solutions that grow with your business ambitions
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="group relative overflow-hidden bg-gradient-to-br from-green-500 to-green-600 dark:from-green-600 dark:to-green-700 p-6 rounded-lg mdc-elevation--z2 hover:mdc-elevation--z8 transition-all duration-300 cursor-pointer">
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-white opacity-10 rounded-full -mr-10 -mt-10"></div>
+                            <div class="relative">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4 backdrop-blur-sm">
+                                    <i class="material-icons text-white text-2xl">handshake</i>
+                                </div>
+                                <h4 class="text-white font-bold text-lg mb-2">Values</h4>
+                                <p class="text-green-50 text-sm leading-relaxed">
+                                    Quality, integrity, and lasting partnerships through honest collaboration
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills List -->
+                    <div>
+                        <h4 class="font-semibold mb-4">What I Bring to the Table</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                Full-stack development expertise with modern frameworks
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                Strong focus on performance optimization and accessibility
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                Experience in agile development and team collaboration
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                Passion for clean, maintainable, and scalable code
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="animate-slide-up">
+                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 p-8 rounded-2xl">
+                        <h4 class="text-xl font-bold mb-6">My Journey</h4>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold">
+                                    22
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">Started Journey</h5>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Began my software development career</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center text-white font-bold">
+                                    23
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">First Projects</h5>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Delivered successful client projects</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold">
+                                    24
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">Growth Phase</h5>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Expanded skills and client base</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center text-white font-bold">
+                                    25
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">Current Focus</h5>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Building innovative solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-fade-in">
+                <span class="text-blue-600 dark:text-blue-400 font-mono text-lg">03. Skills</span>
+                <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-6">
+                    <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        My Expertise
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Technologies and tools I work with
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Frontend Skills -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4 4 4 0 004-4V5z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">Frontend Development</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">React</span>
+                                <span class="text-sm text-gray-500">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">JavaScript</span>
+                                <span class="text-sm text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">CSS/SCSS</span>
+                                <span class="text-sm text-gray-500">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">HTML5</span>
+                                <span class="text-sm text-gray-500">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Skills -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">Backend Development</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Node.js</span>
+                                <span class="text-sm text-gray-500">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Express.js</span>
+                                <span class="text-sm text-gray-500">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">MongoDB</span>
+                                <span class="text-sm text-gray-500">70%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">API Development</span>
+                                <span class="text-sm text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Other -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">Tools & Others</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Git/GitHub</span>
+                                <span class="text-sm text-gray-500">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">VS Code</span>
+                                <span class="text-sm text-gray-500">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Figma</span>
+                                <span class="text-sm text-gray-500">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Responsive Design</span>
+                                <span class="text-sm text-gray-500">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-fade-in">
+                <span class="text-blue-600 dark:text-blue-400 font-mono text-lg">04. Projects</span>
+                <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-6">
+                    <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        Featured Work
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Showcasing my latest projects and achievements
+                </p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Project 1 -->
+                <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
+                    <div class="relative overflow-hidden">
+                        <img src="pizza homepage.png" alt="Pizza Restaurant Website" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fab fa-github text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Pizza Restaurant Website</h3>
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">2024</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Modern, responsive website for a pizza restaurant featuring online ordering and menu management.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded">React</span>
+                            <span class="text-xs bg-green-500 text-white px-2 py-1 rounded">CSS3</span>
+                            <span class="text-xs bg-yellow-500 text-white px-2 py-1 rounded">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
+                    <div class="relative overflow-hidden">
+                        <img src="villa1.PNG" alt="Luxury Villa Showcase" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fab fa-github text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Luxury Villa Showcase</h3>
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">2024</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Elegant property showcase website featuring virtual tours and interactive galleries.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-orange-500 text-white px-2 py-1 rounded">HTML5</span>
+                            <span class="text-xs bg-pink-500 text-white px-2 py-1 rounded">SCSS</span>
+                            <span class="text-xs bg-purple-500 text-white px-2 py-1 rounded">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-shopping-cart text-4xl mb-4"></i>
+                                <h4 class="text-xl font-bold">E-Commerce Platform</h4>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fab fa-github text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">E-Commerce Platform</h3>
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Full-stack e-commerce solution with payment integration and admin dashboard.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded">React</span>
+                            <span class="text-xs bg-green-500 text-white px-2 py-1 rounded">Node.js</span>
+                            <span class="text-xs bg-purple-500 text-white px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-mobile-alt text-4xl mb-4"></i>
+                                <h4 class="text-xl font-bold">Mobile App Design</h4>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fab fa-github text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Mobile App UI/UX</h3>
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">2024</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Modern mobile app design with intuitive user interface and smooth user experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-pink-500 text-white px-2 py-1 rounded">Figma</span>
+                            <span class="text-xs bg-purple-500 text-white px-2 py-1 rounded">UI/UX</span>
+                            <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded">React Native</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-yellow-500 via-orange-500 to-red-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-chart-line text-4xl mb-4"></i>
+                                <h4 class="text-xl font-bold">Analytics Dashboard</h4>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fab fa-github text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Business Dashboard</h3>
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">2024</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Comprehensive analytics dashboard with real-time data visualization and reporting.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded">Vue.js</span>
+                            <span class="text-xs bg-orange-500 text-white px-2 py-1 rounded">Chart.js</span>
+                            <span class="text-xs bg-green-500 text-white px-2 py-1 rounded">API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-laptop-code text-4xl mb-4"></i>
+                                <h4 class="text-xl font-bold">Portfolio Website</h4>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fab fa-github text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Creative Portfolio</h3>
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Professional portfolio website showcasing creative work with modern animations.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-orange-500 text-white px-2 py-1 rounded">HTML5</span>
+                            <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded">CSS3</span>
+                            <span class="text-xs bg-yellow-500 text-white px-2 py-1 rounded">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 - Template for New Projects -->
+                <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-code text-4xl mb-4"></i>
+                                <h4 class="text-xl font-bold">Your Project Title</h4>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <i class="fab fa-github text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">New Project</h3>
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Add your project description here. Explain what the project does and what technologies were used.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded">Tech 1</span>
+                            <span class="text-xs bg-green-500 text-white px-2 py-1 rounded">Tech 2</span>
+                            <span class="text-xs bg-purple-500 text-white px-2 py-1 rounded">Tech 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-fade-in">
+                <span class="text-blue-600 dark:text-blue-400 font-mono text-lg">05. Contact</span>
+                <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-6">
+                    <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        Let's Work Together
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Ready to bring your ideas to life?
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div class="space-y-8 animate-slide-up">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Get Your Project Started</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-8">
+                            I'm always excited to work on new projects and help businesses achieve their digital goals.
+                            Let's discuss how we can create something amazing together.
+                        </p>
+                    </div>
+
+                    <!-- Contact Methods -->
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl hover:shadow-lg transition-shadow duration-300">
+                            <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-white">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <a href="mailto:simaclaverly@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">
+                                    simaclaverly@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl hover:shadow-lg transition-shadow duration-300">
+                            <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-white">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">WhatsApp</h4>
+                                <a href="https://wa.me/905391065869" class="text-blue-600 dark:text-blue-400 hover:underline">
+                                    +90 539 106 5869
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl hover:shadow-lg transition-shadow duration-300">
+                            <div class="w-12 h-12 bg-blue-700 rounded-lg flex items-center justify-center text-white">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/simapeter/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">
+                                    Connect with me
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Availability -->
+                    <div class="p-6 bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-xl">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                            <span class="font-semibold text-green-700 dark:text-green-400">Available for new projects</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Usually responds within 24 hours</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="animate-slide-up">
+                    <form class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg space-y-6">
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold mb-2">Send me a message</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Fill out the form below and I'll get back to you soon</p>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2">Name *</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="project-type" class="block text-sm font-medium mb-2">Project Type</label>
+                            <select id="project-type" name="project-type" 
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+                                <option value="">Select project type</option>
+                                <option value="website">Website Development</option>
+                                <option value="webapp">Web Application</option>
+                                <option value="ecommerce">E-commerce Solution</option>
+                                <option value="redesign">Website Redesign</option>
+                                <option value="consultation">Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2">Project Details *</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      placeholder="Tell me about your project, goals, timeline, and any specific requirements..."
+                                      class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200 resize-vertical"></textarea>
+                        </div>
+
+                        <button type="submit" 
+                                class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-4 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
+                            <span class="flex items-center justify-center space-x-2">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="col-span-2">
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+                        Sima Kelvin
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Software Developer & Digital Solutions Architect creating innovative web experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/simakelvinpeter" target="_blank" 
+                           class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/simapeter/" target="_blank" 
+                           class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://wa.me/905391065869" target="_blank" 
+                           class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-green-500 hover:text-white transition-colors duration-200">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Home</a></li>
+                        <li><a href="#about" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">About</a></li>
+                        <li><a href="#skills" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Skills</a></li>
+                        <li><a href="#projects" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-600 dark:text-gray-400">Web Development</li>
+                        <li class="text-gray-600 dark:text-gray-400">UI/UX Design</li>
+                        <li class="text-gray-600 dark:text-gray-400">E-commerce Solutions</li>
+                        <li class="text-gray-600 dark:text-gray-400">Consultation</li>
+                        <li class="text-gray-600 dark:text-gray-400">Maintenance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-600 dark:text-gray-400">
+                    &copy; 2025 Sima Kelvin. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" 
+            class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-200 opacity-0 invisible">
+        <svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Customer Satisfaction Rating Modal -->
+    <div id="satisfaction-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 transform scale-95 transition-transform duration-300">
+            <div class="p-8">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold mb-2">Rate Your Experience</h3>
+                    <p class="text-gray-600 dark:text-gray-400">How satisfied are you with my work?</p>
+                </div>
+                
+                <!-- Star Rating -->
+                <div class="flex justify-center space-x-2 mb-6">
+                    <button class="star-rating text-4xl text-gray-300 hover:text-yellow-400 transition-colors duration-200" data-rating="1">★</button>
+                    <button class="star-rating text-4xl text-gray-300 hover:text-yellow-400 transition-colors duration-200" data-rating="2">★</button>
+                    <button class="star-rating text-4xl text-gray-300 hover:text-yellow-400 transition-colors duration-200" data-rating="3">★</button>
+                    <button class="star-rating text-4xl text-gray-300 hover:text-yellow-400 transition-colors duration-200" data-rating="4">★</button>
+                    <button class="star-rating text-4xl text-gray-300 hover:text-yellow-400 transition-colors duration-200" data-rating="5">★</button>
+                </div>
+                
+                <!-- Satisfaction Levels -->
+                <div class="grid grid-cols-5 gap-2 mb-6">
+                    <button class="satisfaction-level px-3 py-2 text-center rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200" data-level="20">
+                        <div class="text-2xl mb-1">😞</div>
+                        <div class="text-xs">20%</div>
+                    </button>
+                    <button class="satisfaction-level px-3 py-2 text-center rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-orange-500 hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-200" data-level="40">
+                        <div class="text-2xl mb-1">😐</div>
+                        <div class="text-xs">40%</div>
+                    </button>
+                    <button class="satisfaction-level px-3 py-2 text-center rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-yellow-500 hover:bg-yellow-50 dark:hover:bg-yellow-900/20 transition-all duration-200" data-level="60">
+                        <div class="text-2xl mb-1">😊</div>
+                        <div class="text-xs">60%</div>
+                    </button>
+                    <button class="satisfaction-level px-3 py-2 text-center rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all duration-200" data-level="80">
+                        <div class="text-2xl mb-1">😄</div>
+                        <div class="text-xs">80%</div>
+                    </button>
+                    <button class="satisfaction-level px-3 py-2 text-center rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200" data-level="100">
+                        <div class="text-2xl mb-1">🤩</div>
+                        <div class="text-xs">100%</div>
+                    </button>
+                </div>
+                
+                <!-- Comment (Optional) -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium mb-2">Comment (Optional)</label>
+                    <textarea id="satisfaction-comment" rows="3" placeholder="Share your thoughts..." 
+                              class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 resize-none"></textarea>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex space-x-3">
+                    <button id="cancel-rating" class="flex-1 px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                        Cancel
+                    </button>
+                    <button id="submit-rating" class="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        Submit Rating
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    
+    <!-- Initialize Professional Icons -->
+    <script>
+        // Initialize Feather Icons if available
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+        
+        // Initialize Lucide Icons if available
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
