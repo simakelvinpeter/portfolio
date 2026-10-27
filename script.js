@@ -11,13 +11,33 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize theme first
     initializeTheme();
+
+    // Keep the project total in sync with the cards in the showcase.
+    updateProjectsCount();
+    const projectsCounter = document.getElementById('projects-count');
+    if (projectsCounter) {
+        projectsCounter.textContent = projectsCounter.dataset.count;
+    }
+
+    // The menu uses the IDs already present in index.html.
+    const mobileMenuButton = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton?.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', String(!isHidden));
+    });
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+        });
+    });
     
     // Initialize other components
     setTimeout(() => {
         initializeAnimations();
         initializeTypingAnimation();
         initializeMagneticButtons();
-        initializeFloatingIcons();
         initializeParallax();
     }, 100);
     

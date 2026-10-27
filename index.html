@@ -130,7 +130,7 @@
                     </button>
                     
                     <!-- Professional Mobile Menu Button -->
-                    <button id="mobile-menu-btn" class="md:hidden p-3 rounded-xl bg-white/70 dark:bg-gray-800/70 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300 shadow-lg hover:shadow-xl cursor-hover">
+                    <button id="mobile-menu-btn" aria-label="Toggle navigation" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden p-3 rounded-xl bg-white/70 dark:bg-gray-800/70 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300 shadow-lg hover:shadow-xl cursor-hover">
                         <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -327,28 +327,28 @@
                     <!-- Details Grid -->
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div class="p-6 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-lg transition-shadow duration-300">
-                            <div class="text-3xl mb-3">🎯</div>
+                            <div class="text-3xl mb-3 text-blue-600 dark:text-blue-400"><svg class="portfolio-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#target"></use></svg></div>
                             <h4 class="font-semibold mb-2">Mission</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400">
                                 Empowering businesses through cutting-edge web solutions.
                             </p>
                         </div>
                         <div class="p-6 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-lg transition-shadow duration-300">
-                            <div class="text-3xl mb-3">💡</div>
+                            <div class="text-3xl mb-3 text-blue-600 dark:text-blue-400"><svg class="portfolio-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#bulb"></use></svg></div>
                             <h4 class="font-semibold mb-2">Approach</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400">
                                 Combining technical expertise with creative problem-solving.
                             </p>
                         </div>
                         <div class="p-6 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-lg transition-shadow duration-300">
-                            <div class="text-3xl mb-3">🚀</div>
+                            <div class="text-3xl mb-3 text-blue-600 dark:text-blue-400"><svg class="portfolio-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#compass"></use></svg></div>
                             <h4 class="font-semibold mb-2">Vision</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400">
                                 Leading digital transformation through innovation.
                             </p>
                         </div>
                         <div class="p-6 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-lg transition-shadow duration-300">
-                            <div class="text-3xl mb-3">🤝</div>
+                            <div class="text-3xl mb-3 text-blue-600 dark:text-blue-400"><svg class="portfolio-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#users"></use></svg></div>
                             <h4 class="font-semibold mb-2">Values</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400">
                                 Collaboration, learning, and exceeding expectations.
@@ -617,10 +617,89 @@
 
             <!-- Projects Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Featured work: StudyAndGoGlobal -->
+                <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <svg class="portfolio-icon text-4xl mb-4" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#globe"></use></svg>
+                                <h4 class="text-xl font-bold">StudyAndGoGlobal</h4>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
+                                <a href="https://studyandgoglobal.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit StudyAndGoGlobal" title="Visit StudyAndGoGlobal" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <svg class="portfolio-icon text-sm" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#external"></use></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">StudyAndGoGlobal</h3>
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">2026</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            A study-abroad website helping East African students explore universities, find scholarship information, and get application and visa guidance.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded">HTML5</span>
+                            <span class="text-xs bg-green-500 text-white px-2 py-1 rounded">CSS3</span>
+                            <span class="text-xs bg-purple-500 text-white px-2 py-1 rounded">JavaScript</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-4">Live website · Client project</p>
+                        <a href="https://studyandgoglobal.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+                            Visit StudyAndGoGlobal
+                            <svg class="portfolio-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#external"></use></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Featured work: Student Portal MVP -->
+                <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <svg class="portfolio-icon text-4xl mb-4" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#graduation"></use></svg>
+                                <h4 class="text-xl font-bold">Student Portal MVP</h4>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
+                                <a href="#contact" aria-label="Request a portal walkthrough" title="Request a portal walkthrough" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
+                                    <svg class="portfolio-icon text-sm" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#arrow"></use></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Student Portal MVP</h3>
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">2026</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            A student portal with secure accounts, admin-assigned courses, transcripts, documents, and bank-transfer reviews. Built for separate client installations.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded">HTML5</span>
+                            <span class="text-xs bg-green-500 text-white px-2 py-1 rounded">CSS3</span>
+                            <span class="text-xs bg-purple-500 text-white px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs bg-orange-500 text-white px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-yellow-500 text-white px-2 py-1 rounded">Flask</span>
+                            <span class="text-xs bg-indigo-500 text-white px-2 py-1 rounded">SQLite</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-4">Completed MVP · Demo available on request</p>
+                        <a href="#contact" class="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+                            Request a portal walkthrough
+                            <svg class="portfolio-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#arrow"></use></svg>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Project 1 -->
                 <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
                     <div class="relative overflow-hidden">
-                        <img src="pizza homepage.PNG" alt="Pizza Restaurant Website" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <img src="assets/pizza homepage.PNG" alt="Pizza Restaurant Website" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
@@ -655,11 +734,11 @@
                 <!-- Project 2 -->
                 <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
                     <div class="relative overflow-hidden">
-                        <img src="villa1.PNG" alt="Luxury Villa Showcase" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <img src="assets/villa1.PNG" alt="Luxury Villa Showcase" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
-                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                    <svg class="portfolio-icon text-sm" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#external"></use></svg>
                                 </a>
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
                                     <i class="fab fa-github text-sm"></i>
@@ -688,14 +767,14 @@
                     <div class="relative overflow-hidden">
                         <div class="w-full h-48 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center">
                             <div class="text-center text-white">
-                                <i class="fas fa-shopping-cart text-4xl mb-4"></i>
+                                <svg class="portfolio-icon text-4xl mb-4" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#cart"></use></svg>
                                 <h4 class="text-xl font-bold">E-Commerce Platform</h4>
                             </div>
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
-                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                    <svg class="portfolio-icon text-sm" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#external"></use></svg>
                                 </a>
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
                                     <i class="fab fa-github text-sm"></i>
@@ -724,14 +803,14 @@
                     <div class="relative overflow-hidden">
                         <div class="w-full h-48 bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 flex items-center justify-center">
                             <div class="text-center text-white">
-                                <i class="fas fa-mobile-alt text-4xl mb-4"></i>
+                                <svg class="portfolio-icon text-4xl mb-4" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#phone"></use></svg>
                                 <h4 class="text-xl font-bold">Mobile App Design</h4>
                             </div>
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
-                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                    <svg class="portfolio-icon text-sm" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#external"></use></svg>
                                 </a>
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
                                     <i class="fab fa-github text-sm"></i>
@@ -760,14 +839,14 @@
                     <div class="relative overflow-hidden">
                         <div class="w-full h-48 bg-gradient-to-br from-yellow-500 via-orange-500 to-red-500 flex items-center justify-center">
                             <div class="text-center text-white">
-                                <i class="fas fa-chart-line text-4xl mb-4"></i>
+                                <svg class="portfolio-icon text-4xl mb-4" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#chart"></use></svg>
                                 <h4 class="text-xl font-bold">Analytics Dashboard</h4>
                             </div>
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
-                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                    <svg class="portfolio-icon text-sm" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#external"></use></svg>
                                 </a>
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
                                     <i class="fab fa-github text-sm"></i>
@@ -796,14 +875,14 @@
                     <div class="relative overflow-hidden">
                         <div class="w-full h-48 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center">
                             <div class="text-center text-white">
-                                <i class="fas fa-laptop-code text-4xl mb-4"></i>
+                                <svg class="portfolio-icon text-4xl mb-4" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#code"></use></svg>
                                 <h4 class="text-xl font-bold">Portfolio Website</h4>
                             </div>
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
-                                    <i class="fas fa-external-link-alt text-sm"></i>
+                                    <svg class="portfolio-icon text-sm" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#external"></use></svg>
                                 </a>
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
                                     <i class="fab fa-github text-sm"></i>
@@ -827,41 +906,6 @@
                     </div>
                 </div>
 
-                <!-- Project 7 - Template for New Projects -->
-                <div class="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up" data-project>
-                    <div class="relative overflow-hidden">
-                        <div class="w-full h-48 bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-500 flex items-center justify-center">
-                            <div class="text-center text-white">
-                                <i class="fas fa-code text-4xl mb-4"></i>
-                                <h4 class="text-xl font-bold">Your Project Title</h4>
-                            </div>
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
-                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
-                                    <i class="fas fa-external-link-alt text-sm"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-200">
-                                    <i class="fab fa-github text-sm"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-bold">New Project</h3>
-                            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">2025</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4">
-                            Add your project description here. Explain what the project does and what technologies were used.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded">Tech 1</span>
-                            <span class="text-xs bg-green-500 text-white px-2 py-1 rounded">Tech 2</span>
-                            <span class="text-xs bg-purple-500 text-white px-2 py-1 rounded">Tech 3</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1088,23 +1132,23 @@
                 <!-- Satisfaction Levels -->
                 <div class="grid grid-cols-5 gap-2 mb-6">
                     <button class="satisfaction-level px-3 py-2 text-center rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200" data-level="20">
-                        <div class="text-2xl mb-1">😞</div>
+                        <div class="text-2xl mb-1"><svg class="portfolio-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#face-low"></use></svg></div>
                         <div class="text-xs">20%</div>
                     </button>
                     <button class="satisfaction-level px-3 py-2 text-center rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-orange-500 hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-200" data-level="40">
-                        <div class="text-2xl mb-1">😐</div>
+                        <div class="text-2xl mb-1"><svg class="portfolio-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#face-neutral"></use></svg></div>
                         <div class="text-xs">40%</div>
                     </button>
                     <button class="satisfaction-level px-3 py-2 text-center rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-yellow-500 hover:bg-yellow-50 dark:hover:bg-yellow-900/20 transition-all duration-200" data-level="60">
-                        <div class="text-2xl mb-1">😊</div>
+                        <div class="text-2xl mb-1"><svg class="portfolio-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#face-smile"></use></svg></div>
                         <div class="text-xs">60%</div>
                     </button>
                     <button class="satisfaction-level px-3 py-2 text-center rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all duration-200" data-level="80">
-                        <div class="text-2xl mb-1">😄</div>
+                        <div class="text-2xl mb-1"><svg class="portfolio-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#face-happy"></use></svg></div>
                         <div class="text-xs">80%</div>
                     </button>
                     <button class="satisfaction-level px-3 py-2 text-center rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200" data-level="100">
-                        <div class="text-2xl mb-1">🤩</div>
+                        <div class="text-2xl mb-1"><svg class="portfolio-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="assets/icons.svg#face-best"></use></svg></div>
                         <div class="text-xs">100%</div>
                     </button>
                 </div>
